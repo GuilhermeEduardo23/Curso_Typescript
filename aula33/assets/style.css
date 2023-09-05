@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-size: 300% 300%;
+    background: linear-gradient(45deg, #213555, #4F709C, #D8C4B6, #F5EFE7);
+    animation: gradientColor 15s ease-in-out infinite;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 600px;
+    background: #ffffffaf;
+    padding: 20px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.container .information {
+    display: flex;
+    justify-content: space-around;
+    max-width: 100%;
+}
+
+.imc, .resultado {
+    width: 50%;
+    text-align: center;
+}
+
+.container h1 {
+    text-align: center;
+}
+
+.container h1:first-child {
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+}
+
+form label, .informacao {
+    font-weight: bold;
+}
+
+form input, form label, form button, .imcResultado {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input {
+    font-size: 24px;
+    height: 50px;
+    padding: 10px;
+}
+
+form input:focus {
+    outline: 1px solid var(--primaryColor);
+}
+
+.buttons {
+    display: flex;
+}
+
+form button {
+    border: none;
+    background: var(--primaryColor);
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    height: 50px;
+    width: 50%;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    margin: 10px;
+}
+
+form button:hover{
+    background: var(--primaryColorDarker);
+    letter-spacing: 10px;
+    color: #fff;
+}
+
+.imcResultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ocultarDisplay {
+    display: none;
+}
+
+.paragrafo-resultado, .bad {
+    background: rgb(17, 174, 20);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.bad {
+    background: rgb(220, 32, 29);
+    color: #fff;
+}
+
+:root {
+    --primaryColor: rgba(45, 180, 210, 0.672);
+    --primaryColorDarker: rgba(10, 92, 111, 0.672);
+}
+
+@-webkit-keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes gradientColor {
+    0% {
+        background-position: 0% 50%;
+    } 50% {
+        background-position: 100% 50%;
+    } 100% {
+        background-position: 0% 50%;
+    }
+}
