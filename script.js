@@ -73,19 +73,35 @@ const frase = "Front End";
 const preco = 500;
 const condi = preco > 100;
 console.log(typeof frase === "string" ? 'Frase é uma string' : 'Frase não é uma string');
-/* Union Types */
-let total = 200;
+/* Union Types
+let total: string | number = 200;
 total = '300';
-function isNumber(value) {
-    if (typeof value === 'number') {
+
+function isNumber(value: string | number) {
+    if(typeof value === 'number') {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
-if (isNumber("200")) {
+
+if(isNumber("200")) {
     console.log(isNumber(200));
 }
+
 const button = document.querySelector('button');
-button === null || button === void 0 ? void 0 : button.click();
+
+button?.click();*/
+/* Exercício 03 */
+function toNumber(value) {
+    if (typeof value === "number") {
+        return value;
+    }
+    else if (typeof value === "string") {
+        return Number(value);
+    }
+    else {
+        throw "Value deve ser um número ou uma string";
+    }
+}
+console.log(toNumber(25));
