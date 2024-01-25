@@ -73,3 +73,19 @@ const frase = "Front End";
 const preco = 500;
 const condi = preco > 100;
 console.log(typeof frase === "string" ? 'Frase é uma string' : 'Frase não é uma string');
+/* Union Types */
+let total = 200;
+total = '300';
+function isNumber(value) {
+    if (typeof value === 'number') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+if (isNumber("200")) {
+    console.log(isNumber(200));
+}
+const button = document.querySelector('button');
+button === null || button === void 0 ? void 0 : button.click();
