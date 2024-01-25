@@ -29,4 +29,42 @@ function transformarPreco(produto: {nome: string, preco: string}) {
     return produto.preco;
 }
 
-console.log(transformarPreco(nintendo));
+//console.log(transformarPreco(nintendo));
+
+/* Consertar função - Exercício 01 */
+function normalizarTexto(texto: string) {
+    return texto.trim().toLowerCase();
+}
+
+const frase = ' O gato roeu a roupa do rei de Roma ';
+
+const fraseNormalizada = normalizarTexto(frase);
+
+//console.log(fraseNormalizada);
+
+/* Exercício 02 */
+
+const input = document.querySelector('input');
+
+const total = localStorage.getItem('total');
+
+if(input && total) {
+    input.value = total;
+    calcularGanho(Number(input.value));
+}
+
+function calcularGanho(value: number) {
+    const p = document.querySelector('p');
+
+    if(p) {
+        p.innerText = `Ganho Total: ${value + 100 - value * 0.2}`;
+    }
+}
+
+function totalMudou() {
+    if(input) {
+        const value = Number(input.value);
+        localStorage.setItem('total', input.value);
+        calcularGanho(value);
+    }
+}
