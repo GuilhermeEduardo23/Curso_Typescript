@@ -1,4 +1,4 @@
-/* Annotation e Inference */
+/* Annotation e Inference 
 
 const produto = 'Livro';
 const preco = 200;
@@ -29,9 +29,9 @@ function transformarPreco(produto: {nome: string, preco: string}) {
     return produto.preco;
 }
 
-//console.log(transformarPreco(nintendo));
+console.log(transformarPreco(nintendo)); */
 
-/* Consertar função - Exercício 01 */
+/* Consertar função - Exercício 01 
 function normalizarTexto(texto: string) {
     return texto.trim().toLowerCase();
 }
@@ -42,7 +42,7 @@ const fraseNormalizada = normalizarTexto(frase);
 
 //console.log(fraseNormalizada);
 
-/* Exercício 02 */
+Exercício 02
 
 const input = document.querySelector('input');
 
@@ -67,4 +67,11 @@ function totalMudou() {
         localStorage.setItem('total', input.value);
         calcularGanho(value);
     }
-}
+} */
+
+/* Tipos Primitivos */
+const frase = "Front End";
+const preco = 500;
+const condi = preco > 100;
+
+console.log(typeof frase === "string" ? 'Frase é uma string' : 'Frase não é uma string');
