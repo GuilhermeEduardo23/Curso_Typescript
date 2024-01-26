@@ -194,7 +194,7 @@ interface IProduct {
     empresaMontadora: IEmpresa;
 }
 
-window.addEventListener('load', fetchProduct);
+/*window.addEventListener('load', fetchProduct);
 
 async function fetchProduct() {
     const response = await fetch('https://api.origamid.dev/json/notebook.json');
@@ -219,3 +219,24 @@ function showProduct(data: IProduct) {
         </div>
     `;
 }
+
+const numeros = [10, 20, 30, 40, 50];
+
+function maiorQue10(numeros: Array<number>) {
+    return numeros.filter(n => n > 10);
+}
+
+console.log(maiorQue10(numeros));
+
+const valores = [10, 'Taxas', 30, 'Produto', 50, 3];
+
+function filtrarValores(data: Array<string | number>) {
+    return data.filter(item => typeof item === "number");
+}
+
+console.log(filtrarValores(valores));
+
+const dados = [
+    ["Senhor dos Anéis", 80],
+    ["Game of Thrones", 120],
+];*/
