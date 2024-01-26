@@ -126,10 +126,15 @@ console.log(toNumber(25));*/
 
 console.log(verificarVogais('O rato roeu a roupa do rei de Roma'));*/
 
-type NumberOrString = string | number;
+type NumberOrString = 25 | "25";
 
-let total: NumberOrString = 20;
-total = "30";
+let nums: NumberOrString = "25";
+
+interface IProduto {
+    nome: string;
+    preco: number;
+    teclado: boolean;
+}
 
 type Produto = {
     nome: string;
@@ -137,7 +142,7 @@ type Produto = {
     teclado: boolean;
 }
 
-function preencherDados(dados: Produto) {
+function preencherDados(dados: IProduto) {
     document.body.innerHTML += `
         <div>
             <h2>${dados.nome}</h2>
@@ -147,7 +152,7 @@ function preencherDados(dados: Produto) {
     `;
 }
 
-const computador: Produto = {
+const computador: IProduto = {
     nome: 'Computador',
     preco: 2000,
     teclado: true,

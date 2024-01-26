@@ -31,8 +31,7 @@ function transformarPreco(produto: {nome: string, preco: string}) {
 }
 
 console.log(transformarPreco(nintendo)); */
-let total = 20;
-total = "30";
+let nums = "25";
 function preencherDados(dados) {
     document.body.innerHTML += `
         <div>
