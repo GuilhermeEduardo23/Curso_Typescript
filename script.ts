@@ -126,7 +126,7 @@ console.log(toNumber(25));*/
 
 console.log(verificarVogais('O rato roeu a roupa do rei de Roma'));*/
 
-type NumberOrString = 25 | "25";
+/*type NumberOrString = 25 | "25";
 
 let nums: NumberOrString = "25";
 
@@ -176,4 +176,46 @@ function pintarCategoria(categoria: Categorias) {
     }
 }
 
-pintarCategoria("codigo");
+pintarCategoria("codigo");*/
+
+interface IEmpresa {
+    nome: string;
+    fundacao: number;
+    pais: string;
+}
+
+interface IProduct {
+    nome: string;
+    preco: number;
+    descricao: string;
+    garantia: string;
+    seguroAcidentes: boolean;
+    empresaFabricante: IEmpresa;
+    empresaMontadora: IEmpresa;
+}
+
+window.addEventListener('load', fetchProduct);
+
+async function fetchProduct() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const data: IProduct = await response.json();
+    showProduct(data);
+}
+
+function showProduct(data: IProduct) {
+    document.body.innerHTML = `
+        <div>
+            <h2>${data.nome}</h2>
+            <p>Preço: R$ ${data.preco}</p>
+            <p>Descrição: ${data.descricao}</p>
+            <p>Garantia: ${data.garantia}</p>
+            <p>Possui seguro contra acidentes? ${data.seguroAcidentes ? "Sim" : "Não"}</p>
+            <p>Empresa Fabricante: ${data.empresaFabricante.nome}</p>
+            <p>Fundação: ${data.empresaFabricante.fundacao}</p>
+            <p>País: ${data.empresaFabricante.pais}</p>
+            <p>Empresa Montadora: ${data.empresaMontadora.nome}</p>
+            <p>Fundação: ${data.empresaMontadora.fundacao}</p>
+            <p>País: ${data.empresaMontadora.pais}</p>
+        </div>
+    `;
+}
