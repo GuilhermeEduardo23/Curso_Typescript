@@ -40,24 +40,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-function fetchCursos() {
+function ApiMoedas() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('https://api.origamid.dev/json/cursos.json');
+        const response = yield fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
         const data = yield response.json();
-        mostrarCursos(data);
+        exibirResultado(data);
     });
 }
-fetchCursos();
-function mostrarCursos(cursos) {
-    cursos.map(curso => (document.body.innerHTML += `
-            <div>
-                <h1 style = color:${curso.nivel === "iniciante" ? "blue" : "red"}>${curso.nome}</h1>
-                <p>Horas: ${curso.horas}</p>
-                <p>Aulas: ${curso.aulas}</p>
-                <p>Gratuito? ${curso.gratuito === false ? "Não" : "Sim"}</p>
-                <p>Tags: ${curso.tags.join(', ')}</p>
-                <p>ID Aulas: ${curso.idAulas.join(', ')}</p>
-                <p>Nível do curso: ${curso.nivel.toUpperCase()}</p>
-            </div>
-        `));
+ApiMoedas();
+function exibirResultado(moedas) {
+    console.log(moedas);
 }

@@ -241,7 +241,7 @@ const dados = [
     ["Game of Thrones", 120],
 ];*/
 
-interface ICursos {
+/*interface ICursos {
     nome: string;
     horas: number;
     aulas: number;
@@ -274,4 +274,4 @@ function mostrarCursos(cursos: Array<ICursos>) {
             </div>
         `
     ));
-}
+}*/
