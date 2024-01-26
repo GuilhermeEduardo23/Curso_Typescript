@@ -69,12 +69,12 @@ function totalMudou() {
     }
 } */
 
-/* Tipos Primitivos */
+/* Tipos Primitivos
 const frase = "Front End";
 const preco = 500;
 const condi = preco > 100;
 
-console.log(typeof frase === "string" ? 'Frase é uma string' : 'Frase não é uma string');
+console.log(typeof frase === "string" ? 'Frase é uma string' : 'Frase não é uma string'); */
 
 /* Union Types
 let total: string | number = 200;
@@ -96,7 +96,7 @@ const button = document.querySelector('button');
 
 button?.click();*/
 
-/* Exercício 03 */
+/* Exercício 03 
 function toNumber(value: number | string) {
     if(typeof value === "number") {
         return value;
@@ -107,4 +107,68 @@ function toNumber(value: number | string) {
     }
 }
 
-console.log(toNumber(25));
+console.log(toNumber(25));*/
+
+/*function verificarVogais(frase: string) {
+    const vogais = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+    let vogaisContadas = 0;
+
+    for(let i = 0; i < frase.length; i++) {
+        for(let j = 0; j < vogais.length; j++) {
+            if(frase[i] === vogais[j]) {
+                vogaisContadas++;
+            }
+        }
+    }
+
+    return `A frase possui ${vogaisContadas} vogais`;
+}
+
+console.log(verificarVogais('O rato roeu a roupa do rei de Roma'));*/
+
+type NumberOrString = string | number;
+
+let total: NumberOrString = 20;
+total = "30";
+
+type Produto = {
+    nome: string;
+    preco: number;
+    teclado: boolean;
+}
+
+function preencherDados(dados: Produto) {
+    document.body.innerHTML += `
+        <div>
+            <h2>${dados.nome}</h2>
+            <p>R$ ${dados.preco}</p>
+            <p>Inclui teclado: ${dados.teclado ? 'Sim' : 'Não'}</p>
+        </div>
+    `;
+}
+
+const computador: Produto = {
+    nome: 'Computador',
+    preco: 2000,
+    teclado: true,
+}
+
+preencherDados(computador);
+
+preencherDados({
+    nome: 'Notebook',
+    preco: 2500,
+    teclado: false,
+})
+
+type Categorias = 'design' | 'codigo' | 'descod';
+
+function pintarCategoria(categoria: Categorias) {
+    console.log(categoria);
+
+    if(categoria === "design") {
+        console.log("vermelho");
+    }
+}
+
+pintarCategoria("codigo");
