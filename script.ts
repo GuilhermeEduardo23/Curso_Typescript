@@ -240,3 +240,38 @@ const dados = [
     ["Senhor dos Anéis", 80],
     ["Game of Thrones", 120],
 ];*/
+
+interface ICursos {
+    nome: string;
+    horas: number;
+    aulas: number;
+    gratuito: boolean;
+    tags: Array<string>;
+    idAulas: Array<number>;
+    nivel: string;
+}
+
+async function fetchCursos() {
+    const response = await fetch('https://api.origamid.dev/json/cursos.json');
+    const data: Array<ICursos> = await response.json();
+
+    mostrarCursos(data);
+}
+
+fetchCursos();
+
+function mostrarCursos(cursos: Array<ICursos>) {
+    cursos.map(curso => (
+        document.body.innerHTML += `
+            <div>
+                <h1 style = color:${curso.nivel === "iniciante" ? "blue" : "red"}>${curso.nome}</h1>
+                <p>Horas: ${curso.horas}</p>
+                <p>Aulas: ${curso.aulas}</p>
+                <p>Gratuito? ${curso.gratuito === false ? "Não" : "Sim"}</p>
+                <p>Tags: ${curso.tags.join(', ')}</p>
+                <p>ID Aulas: ${curso.idAulas.join(', ')}</p>
+                <p>Nível do curso: ${curso.nivel.toUpperCase()}</p>
+            </div>
+        `
+    ));
+}
