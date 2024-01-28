@@ -31,23 +31,83 @@ function transformarPreco(produto: {nome: string, preco: string}) {
 }
 
 console.log(transformarPreco(nintendo)); */
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-function ApiMoedas() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL');
-        const data = yield response.json();
-        exibirResultado(data);
-    });
+/*window.addEventListener('load', fetchProduct);
+
+async function fetchProduct() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const data: IProduct = await response.json();
+    showProduct(data);
 }
-ApiMoedas();
-function exibirResultado(moedas) {
-    console.log(moedas);
+
+function showProduct(data: IProduct) {
+    document.body.innerHTML = `
+        <div>
+            <h2>${data.nome}</h2>
+            <p>Preço: R$ ${data.preco}</p>
+            <p>Descrição: ${data.descricao}</p>
+            <p>Garantia: ${data.garantia}</p>
+            <p>Possui seguro contra acidentes? ${data.seguroAcidentes ? "Sim" : "Não"}</p>
+            <p>Empresa Fabricante: ${data.empresaFabricante.nome}</p>
+            <p>Fundação: ${data.empresaFabricante.fundacao}</p>
+            <p>País: ${data.empresaFabricante.pais}</p>
+            <p>Empresa Montadora: ${data.empresaMontadora.nome}</p>
+            <p>Fundação: ${data.empresaMontadora.fundacao}</p>
+            <p>País: ${data.empresaMontadora.pais}</p>
+        </div>
+    `;
 }
+
+const numeros = [10, 20, 30, 40, 50];
+
+function maiorQue10(numeros: Array<number>) {
+    return numeros.filter(n => n > 10);
+}
+
+console.log(maiorQue10(numeros));
+
+const valores = [10, 'Taxas', 30, 'Produto', 50, 3];
+
+function filtrarValores(data: Array<string | number>) {
+    return data.filter(item => typeof item === "number");
+}
+
+console.log(filtrarValores(valores));
+
+const dados = [
+    ["Senhor dos Anéis", 80],
+    ["Game of Thrones", 120],
+];*/
+/*interface ICursos {
+    nome: string;
+    horas: number;
+    aulas: number;
+    gratuito: boolean;
+    tags: Array<string>;
+    idAulas: Array<number>;
+    nivel: string;
+}
+
+async function fetchCursos() {
+    const response = await fetch('https://api.origamid.dev/json/cursos.json');
+    const data: Array<ICursos> = await response.json();
+
+    mostrarCursos(data);
+}
+
+fetchCursos();
+
+function mostrarCursos(cursos: Array<ICursos>) {
+    cursos.map(curso => (
+        document.body.innerHTML += `
+            <div>
+                <h1 style = color:${curso.nivel === "iniciante" ? "blue" : "red"}>${curso.nome}</h1>
+                <p>Horas: ${curso.horas}</p>
+                <p>Aulas: ${curso.aulas}</p>
+                <p>Gratuito? ${curso.gratuito === false ? "Não" : "Sim"}</p>
+                <p>Tags: ${curso.tags.join(', ')}</p>
+                <p>ID Aulas: ${curso.idAulas.join(', ')}</p>
+                <p>Nível do curso: ${curso.nivel.toUpperCase()}</p>
+            </div>
+        `
+    ));
+}*/ 

@@ -275,3 +275,28 @@ function mostrarCursos(cursos: Array<ICursos>) {
         `
     ));
 }*/
+
+import axios from "axios";
+
+interface IDadosApiMoedas {
+    code: string;
+    name: string;
+    high: string;
+}
+
+interface ITiposMoedas {
+    USDBRL: IDadosApiMoedas;
+    EURBRL: IDadosApiMoedas;
+    BTCBRL: IDadosApiMoedas;
+}
+
+async function ApiMoedas() {
+    return (await axios.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')).data as ITiposMoedas;
+}
+
+const showData = async (data: Promise<{}>) => {
+    const response = await data;
+    console.log(response);
+}
+
+showData(ApiMoedas());
