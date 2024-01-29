@@ -294,9 +294,11 @@ async function ApiMoedas() {
     return (await axios.get('https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL')).data as ITiposMoedas;
 }
 
-const showData = async (data: Promise<{}>) => {
+const showData = async (data: Promise<ITiposMoedas>) => {
     const response = await data;
-    console.log(response);
+    const result = Object.values(response);
+    const nomes: string[] = result.map(nome => nome.name);
+    console.log(nomes);
 }
 
 showData(ApiMoedas());
