@@ -274,7 +274,7 @@ function mostrarCursos(cursos: Array<ICursos>) {
             </div>
         `
     ));
-}*/
+}
 
 import axios from "axios";
 
@@ -302,3 +302,59 @@ const showData = async (data: Promise<ITiposMoedas>) => {
 }
 
 showData(ApiMoedas());
+
+class Produto {
+    nome: string;
+
+    constructor(nome: string) {
+        this.nome = nome;
+    }
+}
+
+const livro = new Produto('A Guerra dos Tronos');
+
+console.log(livro instanceof Produto);
+
+class Livro extends Produto {
+    autor: string;
+    
+    constructor(name: string, autor: string) {
+        super(name);
+        this.autor = autor;
+    }
+}
+
+class Jogo extends Produto {
+    jogadores: number;
+
+    constructor(name: string, jogadores: number) {
+        super(name);
+        this.jogadores = jogadores;
+    }
+}
+
+function buscarProduto(busca: string) {
+    return busca === "O Hobbit" ? new Livro("O Hobbit", "J. R. R. Tolkien") : busca === "Dark Souls" ? new Jogo("Dark Souls", 1) : null;
+}
+
+const produto = buscarProduto("Dark Souls");
+
+if(produto instanceof Livro) {
+    console.log(produto.autor);
+}
+
+if(produto instanceof Jogo) {
+    console.log(produto.nome);
+}
+
+if(produto instanceof Produto) {
+    console.log(produto.nome);
+}*/
+
+interface Carro {
+    nome: string;
+}
+
+const honda: Carro = {
+    nome: "Honda",
+}
